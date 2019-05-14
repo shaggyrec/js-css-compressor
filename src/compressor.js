@@ -20,7 +20,7 @@ program.on('--help', () => {
 Minify and gzip css and js files
 
 Usage: 
-./scr/compressor.js -p ./public -t js
+./src/compressor.js -p ./public -t js
 `);
 });
 
