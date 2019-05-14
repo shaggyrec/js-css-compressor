@@ -2,6 +2,7 @@ const fs = require('fs');
 const babel = require('babel-core');
 const path = require('path');
 const CleanCSS = require('clean-css');
+const zlib = require('zlib');
 
 function minify (filename, minifyFunc) {
     const filenameWithoutExt = filename.replace(RegExp(path.parse(filename).ext + '$'), '');
@@ -33,9 +34,33 @@ function findFiles(startPath, filter, recursive, callback) {
     });
 }
 
+function compress(types, path, recursive, verbose) {
+    types.map(type => {
+        findFiles(path, `.${type}$`, recursive, filename => {
+            if(verbose) {
+                console.log(`${filename} is compressing`)
+            }
+            const minified = minify(
+                filename,
+                type === 'js' ? minifyJs : minifyCss
+            );
+
+            const output =fs.createWriteStream(`${minified}.gz`);
+            fs.createReadStream(minified)
+            .pipe(zlib.createGzip())
+            .pipe(output);
+
+            if(verbose) {
+                console.log(`${filename} has compressed`)
+            }
+        });
+    });
+}
+
 module.exports = {
     minify,
     findFiles,
     minifyCss,
-    minifyJs
+    minifyJs,
+    compress
 };

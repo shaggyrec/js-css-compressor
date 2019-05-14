@@ -2,7 +2,7 @@
   "name": "compressor",
   "version": "1.0.0",
   "description": "Compressor from js/css",
-  "main": "src/compressor.js",
+  "main": "src/index.js",
   "dependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",

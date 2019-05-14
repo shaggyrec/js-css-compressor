@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 
 const program = require('commander');
-const zlib = require('zlib');
 const fs = require('fs');
 const pjson = require('../package.json');
-const { minify, findFiles, minifyCss, minifyJs } = require('./functions');
+const { compress } = require('./functions');
 
 const availableFileTypes = ['css', 'js'];
 
@@ -45,23 +44,5 @@ if (!fs.existsSync(program.path)){
 }
 
 const types = program.type ? [program.type] : availableFileTypes;
-types.map(type => {
-    findFiles(program.path, `.${type}$`, program.recursive, filename => {
-        if(program.verbose) {
-            console.log(`${filename} is compressing`)
-        }
-        const minified = minify(
-            filename,
-            program.type === 'js' ? minifyJs : minifyCss
-        );
 
-        const output =fs.createWriteStream(`${minified}.gz`);
-        fs.createReadStream(minified)
-            .pipe(zlib.createGzip())
-            .pipe(output);
-
-        if(program.verbose) {
-            console.log(`${filename} has compressed`)
-        }
-    });
-});
+compress(types, program.path, program.recursive, program.verbose);
