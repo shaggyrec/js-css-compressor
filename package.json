@@ -1,0 +1,24 @@
+{
+  "name": "compressor",
+  "version": "1.0.0",
+  "description": "Compressor from js/css",
+  "main": "src/compressor.js",
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "clean-css": "^4.2.1",
+    "i": "^0.3.6",
+    "npm": "^6.9.0",
+    "zlib": "^1.0.5"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha 'test/*.test.js'"
+  },
+  "author": "",
+  "license": "ISC"
+}
