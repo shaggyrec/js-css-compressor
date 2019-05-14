@@ -26,7 +26,7 @@ function findFiles(startPath, filter, recursive, callback) {
     fs.readdirSync(startPath).filter(file => {
         const filename = path.join(startPath, file);
         if (fs.lstatSync(filename).isDirectory() && recursive) {
-            findFiles(startPath, filter, recursive);
+            findFiles(filename, filter, recursive, callback);
         } else if ((new RegExp(filter)).test(filename) && !(new RegExp(`.min${filter}`)).test(filename)) {
             callback(filename);
         }

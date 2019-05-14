@@ -6,20 +6,51 @@ const filesPath = __dirname + '/data/';
 
 describe('functions.js', () => {
     describe('findFiles()', () => {
-        it('should find js files in the directory', () => {
+        it('should find js files in the directory', done => {
             findFiles(filesPath, /\.js$/, false, (filename) => {
-                assert(filename, filename + 'bootstrap.js')
+                assert.equal(filename, filesPath + 'bootstrap.js');
+                done()
+            });
+        });
+
+        it('should find css files in the directory', done => {
+            findFiles(filesPath, /\.css$/, false, (filename) => {
+                assert.equal(filename, filesPath + 'bootstrap.css');
+                done()
+            });
+        });
+
+        it('should find files in the directory and subdirectory', done => {
+            findFiles(filesPath, /\.js$/, true, (filename) => {
+                assert.notEqual(
+                    -1,
+                    [
+                        filesPath + 'bootstrap.js',
+                        filesPath + 'subdirectory/test.js'
+                    ].indexOf(filename)
+                );
+                done();
             });
         });
     });
 
     describe('minify()', () => {
-        const compressedFile = __dirname + '/data/bootstrap.min.js';
+        const compressedJsFile = __dirname + '/data/bootstrap.min.js';
+        const compressedCssFile = __dirname + '/data/bootstrap.min.css';
 
-        after(() => fs.unlink(compressedFile, () => {}));
+        after(() => {
+            fs.unlink(compressedJsFile, () => {});
+            fs.unlink(compressedCssFile, () => {})
+        });
+
         it('should minify js files', () => {
             minify(__dirname + '/data/bootstrap.js', minifyJs);
-            assert(fs.existsSync(compressedFile));
+            assert.isTrue(fs.existsSync(compressedJsFile));
+        });
+
+        it('should minify css files', () => {
+            minify(__dirname + '/data/bootstrap.css', minifyCss);
+            assert.isTrue(fs.existsSync(compressedCssFile));
         });
 
     });
