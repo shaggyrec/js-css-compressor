@@ -20,5 +20,10 @@
     "test": "./node_modules/.bin/mocha 'test/*.test.js'"
   },
   "author": "shaggyrec <i@shagg.ru>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shaggyrec/compressor.git"
+  },
+
   "license": "ISC"
 }
