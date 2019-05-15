@@ -1,6 +1,6 @@
 {
   "name": "js-css-compressor",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Compressor from js/css",
   "keywords": ["js", "css", "minify", "compile", "gzip", "compress"],
   "main": "src/index.js",

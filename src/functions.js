@@ -1,5 +1,7 @@
 const fs = require('fs');
 const babel = require('babel-core');
+const babelEnv = require('babel-preset-env');
+const babelStage0 = require('babel-preset-stage-0');
 const path = require('path');
 const CleanCSS = require('clean-css');
 const zlib = require('zlib');
@@ -15,7 +17,7 @@ function minify (filename, minifyFunc) {
 function minifyJs (code) {
     return babel.transform(code, {
         minified: true,
-        presets: ['env', 'stage-0']
+        presets: [babelEnv, babelStage0]
     }).code;
 }
 
