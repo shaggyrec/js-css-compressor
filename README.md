@@ -14,7 +14,7 @@
     
     compressor('/path/to/src', ['js'], true);
 
-# compressor(path, types = ['js', 'css'], recursive = false)
+### compressor(path, types = ['js', 'css'], recursive = false)
 
  + `path`  (string) - path to folder `TODO: Path to single file `
  + `types` (array)  - types of compressing files ['css'|'js'], default ['js', 'css']
