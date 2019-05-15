@@ -45,10 +45,10 @@ function compress(types, path, recursive, verbose) {
                 type === 'js' ? minifyJs : minifyCss
             );
 
-            const output =fs.createWriteStream(`${minified}.gz`);
+            const output = fs.createWriteStream(`${minified}.gz`);
             fs.createReadStream(minified)
-            .pipe(zlib.createGzip())
-            .pipe(output);
+                .pipe(zlib.createGzip())
+                .pipe(output);
 
             if(verbose) {
                 console.log(`${filename} has compressed`)
