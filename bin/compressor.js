@@ -24,7 +24,7 @@ Usage:
 `);
 });
 
-if (!program.path && !program.type) {
+if (!program.path) {
     program.help();
     process.exit(1);
 }
