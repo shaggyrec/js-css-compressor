@@ -33,10 +33,6 @@ if (program.type && availableFileTypes.indexOf(program.type) === -1) {
     console.log('Set type css or js or don`t pass for use both');
     process.exit(1);
 }
-if (!program.path) {
-    console.log('No path');
-    process.exit(1);
-}
 
 if (!fs.existsSync(program.path)){
     console.log('No dir ' + program.path);
