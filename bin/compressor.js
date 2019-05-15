@@ -3,7 +3,7 @@
 const program = require('commander');
 const fs = require('fs');
 const pjson = require('../package.json');
-const { compress } = require('./functions');
+const { compress } = require('../src/functions');
 
 const availableFileTypes = ['css', 'js'];
 

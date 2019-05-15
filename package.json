@@ -19,6 +19,6 @@
   "scripts": {
     "test": "./node_modules/.bin/mocha 'test/*.test.js'"
   },
-  "author": "",
+  "author": "shaggyrec <i@shagg.ru>",
   "license": "ISC"
 }

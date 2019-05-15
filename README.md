@@ -1,11 +1,11 @@
 # JS CSS minify, transform and gzip compress
 
 ## CLI usage example
-        ./src/compressor.js -p ./public -t js
+        ./bin/compressor.js -p ./public -t js
 
 ### CLI help (see all commands)
 
-        ./src/compressor.js -h 
+        ./bin/compressor.js -h 
         
 
 ## API reference
