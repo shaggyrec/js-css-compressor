@@ -58,9 +58,5 @@ function compress(types, path, recursive, verbose) {
 }
 
 module.exports = {
-    minify,
-    findFiles,
-    minifyCss,
-    minifyJs,
     compress
 };

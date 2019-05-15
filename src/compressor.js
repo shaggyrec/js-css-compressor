@@ -45,4 +45,9 @@ if (!fs.existsSync(program.path)){
 
 const types = program.type ? [program.type] : availableFileTypes;
 
-compress(types, program.path, program.recursive, program.verbose);
+try {
+    compress(types, program.path, program.recursive, program.verbose);
+} catch (e) {
+    console.log(e.message);
+    process.exit(1);
+}
