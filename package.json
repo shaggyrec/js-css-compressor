@@ -2,6 +2,7 @@
   "name": "js-css-compressor",
   "version": "1.0.0",
   "description": "Compressor from js/css",
+  "keywords": ["js", "css", "minify", "compile", "gzip", "compress"],
   "main": "src/index.js",
   "dependencies": {
     "babel-core": "^6.26.3",
