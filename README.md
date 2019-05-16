@@ -4,10 +4,10 @@
 + Compiles modern JS to the ecma5
 + Gzips the files
 
+#### `Creates the files `<filename>.min.<ext>` and  `<filename>.min.<ext>.gz` near the original files`
+
 ## Install
         npm i js-css-compressor
-
-Creates the files `<filename>.min.<ext>` and  `<filename>.min.<ext>.gz` near the original files 
 
 ## CLI usage example
         ./bin/compressor.js -p ./public -t js
