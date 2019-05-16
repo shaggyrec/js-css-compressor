@@ -4,7 +4,7 @@
 + Compiles modern JS to the ecma5
 + Gzips the files
 
-#### `Creates the files `<filename>.min.<ext>` and  `<filename>.min.<ext>.gz` near the original files`
+#### Creates the files `<filename>.min.<ext>` and  `<filename>.min.<ext>.gz` near the original files
 
 ## Install
         npm i js-css-compressor
